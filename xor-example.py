@@ -14,7 +14,7 @@ ds.addSample((1, 1), (0,))
 # trainer.trainUntilConvergence()
 
 trainer = BackpropTrainer(net, ds, learningrate = 0.9, momentum=0.0, weightdecay=0.0, verbose=True)
-trainer.trainEpochs(epochs=100)
+trainer.trainEpochs(epochs=300)
 
 print '0,0->', net.activate([0,0])
 print '0,1->', net.activate([0,1])
