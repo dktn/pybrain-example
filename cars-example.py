@@ -4,7 +4,6 @@ from pybrain.tools.shortcuts     import buildNetwork
 from pybrain.datasets            import SupervisedDataSet
 from pybrain.supervised.trainers import BackpropTrainer
 from pybrain.structure           import *
-from arac.pybrainbridge import _FeedForwardNetwork, _RecurrentNetwork
 
 # download from https://archive.ics.uci.edu/ml/machine-learning-databases/car/car.data
 fname = "cars.csv"

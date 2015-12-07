@@ -40,3 +40,8 @@ print '0,0->', net.activate([0,0])
 print '0,1->', net.activate([0,1])
 print '1,0->', net.activate([1,0])
 print '1,1->', net.activate([1,1])
+
+print '0.2,0.2->', net.activate([0.2,0.2])
+print '0.2,0.8->', net.activate([0.2,0.8])
+print '0.8,0.2->', net.activate([0.8,0.2])
+print '0.8,0.8->', net.activate([0.8,0.8])
