@@ -5,9 +5,11 @@
 ---
 ## Short PyBrain tutorial
 
-Installation:
+PyBrain installation:
 
 ```
+$ brew install python-numpy python-scipy python-maplotlib  # for Mac
+
 $ git clone git://github.com/pybrain/pybrain.git
 
 $ cd pybrain
@@ -18,7 +20,7 @@ $ sudo python setup.py install
 ---
 ## "Hello world!" in PyBrain
 
-```
+```Python
 net = buildNetwork(2, 3, 1, bias=False, recurrent=False)
 
 ds = SupervisedDataSet(2, 1)
@@ -33,7 +35,7 @@ http://pybrain.org/docs/quickstart/dataset.html
 
 ---
 ## Training example
-```
+```Python
 trainer = BackpropTrainer(net, ds, learningrate=0.9, momentum=0.0, weightdecay=0.0, verbose=True)
 
 trainer.trainEpochs(epochs=30)
@@ -81,19 +83,19 @@ If **batchlearning** is set, the parameters are updated only at the end of each 
 ---
 ## Custom network construction
 
-```
-inLayer     = LinearLayer(2)
-hiddenLayer = SigmoidLayer(4)
-outLayer    = LinearLayer(1)
+```Python
+in_layer     = LinearLayer(2)
+hidden_layer = SigmoidLayer(4)
+out_layer    = LinearLayer(1)
 
 net = FeedForwardNetwork()
 
-net.addInputModule(inLayer)
-net.addModule(hiddenLayer)
-net.addOutputModule(outLayer)
+net.addInputModule(in_layer)
+net.addModule(hidden_layer)
+net.addOutputModule(out_layer)
 
-in_to_hidden  = FullConnection(inLayer, hiddenLayer)
-hidden_to_out = FullConnection(hiddenLayer, outLayer)
+in_to_hidden  = FullConnection(in_layer, hidden_layer)
+hidden_to_out = FullConnection(hidden_layer, out_layer)
 
 net.addConnection(in_to_hidden)
 net.addConnection(hidden_to_out)
@@ -106,7 +108,7 @@ http://pybrain.org/docs/tutorial/netmodcon.html
 ---
 ## Run training
 
-```
+```Python
 tst_ds, trn_ds = ds.splitWithProportion(0.25)
 
 trainer.trainOnDataset(trn_ds, 10)
