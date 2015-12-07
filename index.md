@@ -84,18 +84,18 @@ If **batchlearning** is set, the parameters are updated only at the end of each 
 ## Custom network construction
 
 ```Python
-in_layer     = LinearLayer(2)
+input_layer  = LinearLayer(2)
 hidden_layer = SigmoidLayer(4)
-out_layer    = LinearLayer(1)
+output_layer = LinearLayer(1)
 
 net = FeedForwardNetwork()
 
-net.addInputModule(in_layer)
+net.addInputModule(input_layer)
 net.addModule(hidden_layer)
-net.addOutputModule(out_layer)
+net.addOutputModule(output_layer)
 
-in_to_hidden  = FullConnection(in_layer, hidden_layer)
-hidden_to_out = FullConnection(hidden_layer, out_layer)
+in_to_hidden  = FullConnection(input_layer,  hidden_layer)
+hidden_to_out = FullConnection(hidden_layer, output_layer)
 
 net.addConnection(in_to_hidden)
 net.addConnection(hidden_to_out)
