@@ -8,22 +8,22 @@ from pybrain.structure           import *
 # download from https://archive.ics.uci.edu/ml/machine-learning-databases/car/car.data
 fname = "car.data"
 
-# inLayer      = LinearLayer(6, name='in')
-# hiddenLayer1 = SigmoidLayer(8, name='hid')
-# outLayer     = LinearLayer(1, name='out')
-# biasUnit     = BiasUnit(name='bias')
+# in_layer      = LinearLayer(6, name='in')
+# hidden_layer1 = SigmoidLayer(8, name='hid')
+# out_layer     = LinearLayer(1, name='out')
+# bias_unit     = BiasUnit(name='bias')
 
 # net = FeedForwardNetwork()
 
-# net.addInputModule(inLayer)
-# net.addModule(hiddenLayer1)
-# net.addModule(biasUnit)
-# net.addOutputModule(outLayer)
+# net.addInputModule(in_layer)
+# net.addModule(hidden_layer1)
+# net.addModule(bias_unit)
+# net.addOutputModule(out_layer)
 
-# in_to_hidden1   = FullConnection(inLayer, hiddenLayer1)
-# hidden1_to_out  = FullConnection(hiddenLayer1, outLayer)
-# bias_to_hidden1 = FullConnection(biasUnit, hiddenLayer1)
-# bias_to_out     = FullConnection(biasUnit, outLayer)
+# in_to_hidden1   = FullConnection(in_layer, hidden_layer1)
+# hidden1_to_out  = FullConnection(hidden_layer1, out_layer)
+# bias_to_hidden1 = FullConnection(bias_unit, hidden_layer1)
+# bias_to_out     = FullConnection(bias_unit, out_layer)
 
 # net.addConnection(in_to_hidden1)
 # net.addConnection(hidden1_to_out)
@@ -32,11 +32,11 @@ fname = "car.data"
 
 # net.sortModules()
 
-net = buildNetwork(6, 8, 1, bias = True, hiddenclass = SigmoidLayer)
+net = buildNetwork(6, 8, 1, bias=True, hiddenclass=SigmoidLayer)
 
 ds = SupervisedDataSet(6, 1)
 
-trainer = BackpropTrainer(net, learningrate = 0.01, momentum = 0.99)
+trainer = BackpropTrainer(net, learningrate=0.01, momentum=0.99)
 
 def rev_map(dictionary):
     return dict((reversed(item) for item in dictionary.items()))
@@ -68,7 +68,7 @@ with open(fname, "r") as f:
         sample = (price[row[0]], price[row[1]], doors[row[2]], persons[row[3]], lug_boot[row[4]], safety[row[5]])
         ds.addSample(sample, result[row[6]])
 
-tst_ds, trn_ds = ds.splitWithProportion(0.25)
+tst_ds, trn_ds = ds.splitWithProportion(0.2)
 
 # print "train data"
 # for inpt, target in trn_ds:
@@ -78,7 +78,7 @@ tst_ds, trn_ds = ds.splitWithProportion(0.25)
 # for inpt, target in tst_ds:
 #     print inpt, target
 
-# http://pybrain.org/docs/api/supervised/trainers.html
+# More information about trainers: http://pybrain.org/docs/api/supervised/trainers.html
 
 print "Training started"
 
@@ -87,6 +87,9 @@ trainer.trainOnDataset(trn_ds, 10)
 # trainer.trainUntilConvergence(trn_ds, maxEpochs=100, verbose=True, continueEpochs=10, validationProportion=0.25)
 
 # trainer.testOnData(tst_ds, verbose=True)
+
+
+# exercise: how to get network error value for a given epoch?
 
 
 verbose = True
