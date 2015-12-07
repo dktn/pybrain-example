@@ -94,11 +94,11 @@ net.addInputModule(input_layer)
 net.addModule(hidden_layer)
 net.addOutputModule(output_layer)
 
-in_to_hidden  = FullConnection(input_layer,  hidden_layer)
-hidden_to_out = FullConnection(hidden_layer, output_layer)
+input_to_hidden  = FullConnection(input_layer,  hidden_layer)
+hidden_to_output = FullConnection(hidden_layer, output_layer)
 
-net.addConnection(in_to_hidden)
-net.addConnection(hidden_to_out)
+net.addConnection(input_to_hidden)
+net.addConnection(hidden_to_output)
 
 net.sortModules()
 ```
