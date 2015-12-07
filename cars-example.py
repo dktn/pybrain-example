@@ -6,7 +6,7 @@ from pybrain.supervised.trainers import BackpropTrainer
 from pybrain.structure           import *
 
 # download from https://archive.ics.uci.edu/ml/machine-learning-databases/car/car.data
-fname = "cars.csv"
+fname = "car.data"
 
 # inLayer      = LinearLayer(6, name='in')
 # hiddenLayer1 = SigmoidLayer(8, name='hid')
