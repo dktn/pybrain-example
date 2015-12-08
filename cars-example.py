@@ -38,6 +38,8 @@ ds = SupervisedDataSet(6, 1)
 
 trainer = BackpropTrainer(net, learningrate=0.01, momentum=0.99)
 
+# _convertToOneOfMany   # exercise: what is it?
+
 def rev_map(dictionary):
     return dict((reversed(item) for item in dictionary.items()))
 
