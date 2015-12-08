@@ -82,7 +82,7 @@ tst_ds, trn_ds = ds.splitWithProportion(0.2)
 
 print "Training started"
 
-trainer.trainOnDataset(trn_ds, 10)
+# trainer.trainOnDataset(trn_ds, 10)
 
 # trainer.trainUntilConvergence(trn_ds, maxEpochs=100, verbose=True, continueEpochs=10, validationProportion=0.25)
 
@@ -91,8 +91,25 @@ trainer.trainOnDataset(trn_ds, 10)
 
 # exercise: how to get network error value for a given epoch?
 
+def display_net(net):
+    for mod in net.modules:
+        print("Module:", mod.name)
+        if mod.paramdim > 0:
+            print("--parameters:", mod.params)
+        for conn in net.connections[mod]:
+            print("-connection to", conn.outmod.name)
+            if conn.paramdim > 0:
+                 print("- parameters", conn.params)
+        if hasattr(net, "recurrentConns"):
+            print("Recurrent connections")
+            for conn in net.recurrentConns:
+                print("-", conn.inmod.name, " to", conn.outmod.name)
+                if conn.paramdim > 0:
+                    print("- parameters", conn.params)
 
-verbose = True
+# display_net(net)
+
+verbose = False
 
 def display_result(idx):
     row = ds['input'][idx]
