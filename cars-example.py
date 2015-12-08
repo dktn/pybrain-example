@@ -84,7 +84,7 @@ tst_ds, trn_ds = ds.splitWithProportion(0.2)
 
 print "Training started"
 
-# trainer.trainOnDataset(trn_ds, 10)
+trainer.trainOnDataset(trn_ds, 10)
 
 # trainer.trainUntilConvergence(trn_ds, maxEpochs=100, verbose=True, continueEpochs=10, validationProportion=0.25)
 
@@ -111,7 +111,7 @@ def display_net(net):
 
 # display_net(net)
 
-verbose = False
+verbose = True
 
 def display_result(idx):
     row = ds['input'][idx]
