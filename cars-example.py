@@ -93,6 +93,7 @@ trainer.trainOnDataset(trn_ds, 10)
 
 # exercise: how to get network error value for a given epoch?
 
+# from: http://stackoverflow.com/questions/8150772/pybrain-how-to-print-a-network-nodes-and-weights
 def display_net(net):
     for mod in net.modules:
         print("Module:", mod.name)
