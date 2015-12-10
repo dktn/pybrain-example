@@ -16,7 +16,7 @@ contact: adamsz@agh.edu.pl
 ```
 Windows:
 
-1. Pythona 2.7 installation hints: <http://docs.python-guide.org/en/latest/starting/install/win/>
+1. Python 2.7 installation hints: [http://docs.python-guide.org/en/latest/starting/install/win/]
 
 2. Instalation from compiled libraries (download files from: http://www.lfd.uci.edu/~gohlke/pythonlibs/)
 
@@ -27,7 +27,12 @@ pip install "scipy‑0.16.1‑cp27‑none‑win32.whl"
 pip install "matplotlib‑1.5.0‑cp27‑none‑win32.whl"
 
 pip install pybrain
+```
+---
 
+# PyBrain installation:
+
+```
 Linux / Mac
 
 $ sudo zypper install python-numpy python-scipy python-matplotlib  # for Linux (OpenSuse)
