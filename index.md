@@ -15,11 +15,11 @@ contact: adamsz@agh.edu.pl
 
 ### Windows:
 
-```Bash
 1. Python 2.7 installation hints: [http://docs.python-guide.org/en/latest/starting/install/win/](http://docs.python-guide.org/en/latest/starting/install/win/)
 
 2. Instalation from compiled libraries (download files from: [http://www.lfd.uci.edu/~gohlke/pythonlibs/](http://www.lfd.uci.edu/~gohlke/pythonlibs/) )
 
+```Bash
 pip install "numpy‑1.9.3+mkl‑cp27‑none‑win32.whl"
 
 pip install "scipy‑0.16.1‑cp27‑none‑win32.whl"
