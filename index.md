@@ -107,7 +107,8 @@ print '1,1->', net.activate([1,1])
 ## PyBrain documentation
 
 ```Python
-trainer = BackpropTrainer(net, ds, learningrate=0.1, momentum=0.4, weightdecay=0.0, batchlearning=False, verbose=True)
+trainer = BackpropTrainer(net, ds, learningrate=0.1, momentum=0.4,
+                          weightdecay=0.0, batchlearning=False, verbose=True)
 ```
 
 The **learningrate** gives the ratio of which parameters are changed into the direction of the gradient.
