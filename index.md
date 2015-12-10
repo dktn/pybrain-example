@@ -3,9 +3,15 @@
 # Neural Networks using PyBrain
 
 ---
-## Short PyBrain tutorial
+## Short PyBrain presentation
 
-PyBrain installation:
+Adam Szlachta
+
+contact: adamsz@agh.edu.pl
+
+---
+
+# PyBrain installation:
 
 ```
 $ brew install python-numpy python-scipy python-maplotlib  # for Mac
@@ -31,6 +37,7 @@ ds.addSample((1, 1), (1,))
 ```
 
 http://pybrain.org/docs/quickstart/network.html
+
 http://pybrain.org/docs/quickstart/dataset.html
 
 ---
@@ -84,21 +91,27 @@ If **batchlearning** is set, the parameters are updated only at the end of each 
 ## Custom network construction
 
 ```Python
-input_layer  = LinearLayer(2)
-hidden_layer = SigmoidLayer(4)
-output_layer = LinearLayer(1)
+in_layer      = LinearLayer(6, name='in')
+hidden_layer  = SigmoidLayer(8, name='hid')
+out_layer     = LinearLayer(1, name='out')
+bias_unit     = BiasUnit(name='bias')
 
 net = FeedForwardNetwork()
 
-net.addInputModule(input_layer)
+net.addInputModule(in_layer)
 net.addModule(hidden_layer)
-net.addOutputModule(output_layer)
+net.addModule(bias_unit)
+net.addOutputModule(out_layer)
 
-input_to_hidden  = FullConnection(input_layer,  hidden_layer)
-hidden_to_output = FullConnection(hidden_layer, output_layer)
+in_to_hidden1   = FullConnection(in_layer, hidden_layer)
+hidden1_to_out  = FullConnection(hidden_layer, out_layer)
+bias_to_hidden1 = FullConnection(bias_unit, hidden_layer)
+bias_to_out     = FullConnection(bias_unit, out_layer)
 
-net.addConnection(input_to_hidden)
-net.addConnection(hidden_to_output)
+net.addConnection(in_to_hidden1)
+net.addConnection(hidden1_to_out)
+net.addConnection(bias_to_hidden1)
+net.addConnection(bias_to_out)
 
 net.sortModules()
 ```
