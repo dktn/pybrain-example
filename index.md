@@ -61,6 +61,9 @@ ds.addSample((0, 0), (0,))
 ds.addSample((0, 1), (1,))
 ds.addSample((1, 0), (1,))
 ds.addSample((1, 1), (0,))
+
+# (0,0)  - input
+# (0,)   - expected output
 ```
 
 [http://pybrain.org/docs/quickstart/network.html](http://pybrain.org/docs/quickstart/network.html)
@@ -87,7 +90,8 @@ If the **fast** flag is set, faster arac networks will be used instead of the py
 ---
 ## Training example
 ```Python
-trainer = BackpropTrainer(net, ds, learningrate=0.9, momentum=0.0, weightdecay=0.0, verbose=True)
+trainer = BackpropTrainer(net, ds, learningrate=0.9, momentum=0.0,
+                          weightdecay=0.0, verbose=True)
 
 trainer.trainEpochs(epochs=300)
 
@@ -122,27 +126,27 @@ If **batchlearning** is set, the parameters are updated only at the end of each 
 ## Custom network construction
 
 ```Python
-in_layer      = LinearLayer(6, name='in')
-hidden_layer  = SigmoidLayer(8, name='hid')
-out_layer     = LinearLayer(1, name='out')
-bias_unit     = BiasUnit(name='bias')
+input_layer  = LinearLayer(6, name='in')
+hidden_layer = SigmoidLayer(8, name='hid')
+output_layer = LinearLayer(1, name='out')
+bias_unit    = BiasUnit(name='bias')
+
+input_to_hidden  = FullConnection(input_layer,  hidden_layer)
+hidden_to_output = FullConnection(hidden_layer, output_layer)
+bias_to_hidden   = FullConnection(bias_unit,    hidden_layer)
+bias_to_output   = FullConnection(bias_unit,    output_layer)
 
 net = FeedForwardNetwork()
 
-net.addInputModule(in_layer)
+net.addInputModule(input_layer)
 net.addModule(hidden_layer)
 net.addModule(bias_unit)
-net.addOutputModule(out_layer)
+net.addOutputModule(output_layer)
 
-in_to_hidden1   = FullConnection(in_layer, hidden_layer)
-hidden1_to_out  = FullConnection(hidden_layer, out_layer)
-bias_to_hidden1 = FullConnection(bias_unit, hidden_layer)
-bias_to_out     = FullConnection(bias_unit, out_layer)
-
-net.addConnection(in_to_hidden1)
-net.addConnection(hidden1_to_out)
-net.addConnection(bias_to_hidden1)
-net.addConnection(bias_to_out)
+net.addConnection(input_to_hidden)
+net.addConnection(hidden_to_output)
+net.addConnection(bias_to_hidden)
+net.addConnection(bias_to_output)
 
 net.sortModules()
 ```
