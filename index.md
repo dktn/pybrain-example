@@ -14,7 +14,25 @@ contact: adamsz@agh.edu.pl
 # PyBrain installation:
 
 ```
-$ brew install python-numpy python-scipy python-maplotlib  # for Mac
+Windows:
+
+1. Pythona 2.7 installation hints: <http://docs.python-guide.org/en/latest/starting/install/win/>
+
+2. Instalation from compiled libraries (download files from: http://www.lfd.uci.edu/~gohlke/pythonlibs/)
+
+pip install "numpy‑1.9.3+mkl‑cp27‑none‑win32.whl"
+
+pip install "scipy‑0.16.1‑cp27‑none‑win32.whl"
+
+pip install "matplotlib‑1.5.0‑cp27‑none‑win32.whl"
+
+pip install pybrain
+
+Linux / Mac
+
+$ sudo zypper install python-numpy python-scipy python-matplotlib  # for Linux (OpenSuse)
+
+$ brew install numpy scipy matplotlib  # for Mac
 
 $ git clone git://github.com/pybrain/pybrain.git
 
@@ -27,13 +45,13 @@ $ sudo python setup.py install
 ## "Hello world!" in PyBrain
 
 ```Python
-net = buildNetwork(2, 3, 1, bias=False, recurrent=False)
+net = buildNetwork(2, 3, 1, bias=False, recurrent=False, hiddenclass=SigmoidLayer)
 
 ds = SupervisedDataSet(2, 1)
 ds.addSample((0, 0), (0,))
 ds.addSample((0, 1), (1,))
 ds.addSample((1, 0), (1,))
-ds.addSample((1, 1), (1,))
+ds.addSample((1, 1), (0,))
 ```
 
 http://pybrain.org/docs/quickstart/network.html
