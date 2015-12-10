@@ -162,7 +162,7 @@ tst_ds, trn_ds = ds.splitWithProportion(0.25)
 trainer.trainOnDataset(trn_ds, 10)
 
 trainer.trainUntilConvergence(trn_ds, maxEpochs=100, verbose=True,
-                continueEpochs=10, validationProportion=0.25)
+                              continueEpochs=10, validationProportion=0.25)
 
 trainer.testOnData(tst_ds, verbose=True)
 ```
