@@ -127,10 +127,10 @@ If **batchlearning** is set, the parameters are updated only at the end of each 
 ## Custom network construction
 
 ```Python
-input_layer  = LinearLayer(6, name='in')
+input_layer  = LinearLayer (6, name='in')
 hidden_layer = SigmoidLayer(8, name='hid')
-output_layer = LinearLayer(1, name='out')
-bias_unit    = BiasUnit(name='bias')
+output_layer = LinearLayer (1, name='out')
+bias_unit    = BiasUnit    (name='bias')
 
 input_to_hidden  = FullConnection(input_layer,  hidden_layer)
 hidden_to_output = FullConnection(hidden_layer, output_layer)
@@ -139,9 +139,9 @@ bias_to_output   = FullConnection(bias_unit,    output_layer)
 
 net = FeedForwardNetwork()
 
-net.addInputModule(input_layer)
-net.addModule(hidden_layer)
-net.addModule(bias_unit)
+net.addInputModule (input_layer)
+net.addModule      (hidden_layer)
+net.addModule      (bias_unit)
 net.addOutputModule(output_layer)
 
 net.addConnection(input_to_hidden)
