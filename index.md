@@ -11,9 +11,10 @@
 
 #### Links
 
-- [http://pybrain.org/docs/](http://pybrain.org/docs/)
-- [https://github.com/pybrain/pybrain/downloads](https://github.com/pybrain/pybrain/downloads)
-- UCI Machine Learning Repository [http://archive.ics.uci.edu/ml/](http://archive.ics.uci.edu/ml/)
+- This guide: [http://dktn.github.io/pybrain-example](http://dktn.github.io/pybrain-example)
+- PyBrain online documentation: [http://pybrain.org/docs/](http://pybrain.org/docs/)
+- Pdf documentation: [https://github.com/pybrain/pybrain/downloads](https://github.com/pybrain/pybrain/downloads)
+- UCI Machine Learning Repository: [http://archive.ics.uci.edu/ml/](http://archive.ics.uci.edu/ml/)
 
 #### PyBrain usage examples:
 ```Bash
