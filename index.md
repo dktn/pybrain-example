@@ -7,17 +7,17 @@
 
 Adam Szlachta
 
-contact: adamsz@agh.edu.pl
+contact: [adamsz@agh.edu.pl](mailto:adamsz@agh.edu.pl)
 
 ---
 
 ## PyBrain installation:
 
-### Windows:
+##### Windows:
 
 1. Python 2.7 installation hints: [http://docs.python-guide.org/en/latest/starting/install/win/](http://docs.python-guide.org/en/latest/starting/install/win/)
 
-2. Instalation from compiled libraries (download files from: [http://www.lfd.uci.edu/~gohlke/pythonlibs/](http://www.lfd.uci.edu/~gohlke/pythonlibs/) )
+2. Instalation from compiled libraries (download files from: [http://www.lfd.uci.edu/~gohlke/pythonlibs/](http://www.lfd.uci.edu/~gohlke/pythonlibs/))
 
 ```Bash
 pip install "numpy‑1.9.3+mkl‑cp27‑none‑win32.whl"
@@ -32,7 +32,7 @@ pip install pybrain
 
 ## PyBrain installation:
 
-### Linux / Mac
+##### Linux / Mac
 
 ```Bash
 $ sudo zypper install python-numpy python-scipy python-matplotlib  # for Linux (OpenSuse)
@@ -52,6 +52,10 @@ $ sudo python setup.py install
 ```Python
 net = buildNetwork(2, 3, 1, bias=False, recurrent=False, hiddenclass=SigmoidLayer)
 
+# 2 - inputs
+# 3 - neurons in 1st layer
+# 1 - neurons in output layer
+
 ds = SupervisedDataSet(2, 1)
 ds.addSample((0, 0), (0,))
 ds.addSample((0, 1), (1,))
@@ -64,24 +68,11 @@ ds.addSample((1, 1), (0,))
 [http://pybrain.org/docs/quickstart/dataset.html](http://pybrain.org/docs/quickstart/dataset.html)
 
 ---
-## Training example
+## PyBrain documentation
+
 ```Python
-trainer = BackpropTrainer(net, ds, learningrate=0.9, momentum=0.0, weightdecay=0.0, verbose=True)
-
-trainer.trainEpochs(epochs=30)
-
-print '0,0->', net.activate([0,0])
-print '0,1->', net.activate([0,1])
-print '1,0->', net.activate([1,0])
-print '1,1->', net.activate([1,1])
+net = buildNetwork(2, 3, 4, 1, bias=False, recurrent=False, hiddenclass=TanhLayer)
 ```
-
-[http://pybrain.org/docs/quickstart/training.html](http://pybrain.org/docs/quickstart/training.html)
-
----
-## buildNetwork
-
-From PyBrain documentation:
 
 **Layers** should be a list or tuple of integers, that indicate how many neurons the layers should have.
 
@@ -94,9 +85,26 @@ If the **recurrent** flag is set, a RecurrentNetwork will be created, otherwise 
 If the **fast** flag is set, faster arac networks will be used instead of the pybrain implementations.
 
 ---
-## BackpropTrainer class
+## Training example
+```Python
+trainer = BackpropTrainer(net, ds, learningrate=0.9, momentum=0.0, weightdecay=0.0, verbose=True)
 
-From PyBrain documentation:
+trainer.trainEpochs(epochs=300)
+
+print '0,0->', net.activate([0,0])
+print '0,1->', net.activate([0,1])
+print '1,0->', net.activate([1,0])
+print '1,1->', net.activate([1,1])
+```
+
+[http://pybrain.org/docs/quickstart/training.html](http://pybrain.org/docs/quickstart/training.html)
+
+---
+## PyBrain documentation
+
+```Python
+trainer = BackpropTrainer(net, ds, learningrate=0.1, momentum=0.4, weightdecay=0.0, batchlearning=False, verbose=True)
+```
 
 The **learningrate** gives the ratio of which parameters are changed into the direction of the gradient.
 
