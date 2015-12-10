@@ -13,12 +13,12 @@ contact: adamsz@agh.edu.pl
 
 ## PyBrain installation:
 
-```
 ### Windows:
 
+```Bash
 1. Python 2.7 installation hints: [http://docs.python-guide.org/en/latest/starting/install/win/](http://docs.python-guide.org/en/latest/starting/install/win/)
 
-2. Instalation from compiled libraries (download files from: [http://www.lfd.uci.edu/~gohlke/pythonlibs/](http://www.lfd.uci.edu/~gohlke/pythonlibs/))
+2. Instalation from compiled libraries (download files from: [http://www.lfd.uci.edu/~gohlke/pythonlibs/](http://www.lfd.uci.edu/~gohlke/pythonlibs/) )
 
 pip install "numpy‑1.9.3+mkl‑cp27‑none‑win32.whl"
 
@@ -32,9 +32,9 @@ pip install pybrain
 
 ## PyBrain installation:
 
-```Bash
 ### Linux / Mac
 
+```Bash
 $ sudo zypper install python-numpy python-scipy python-matplotlib  # for Linux (OpenSuse)
 
 $ brew install numpy scipy matplotlib  # for Mac
@@ -139,7 +139,7 @@ net.addConnection(bias_to_out)
 net.sortModules()
 ```
 
-[http://pybrain.org/docs/tutorial/netmodcon.html](http://pybrain.org/docs/tutorial/netmodcon.html()
+[http://pybrain.org/docs/tutorial/netmodcon.html](http://pybrain.org/docs/tutorial/netmodcon.html)
 
 ---
 ## Run training
