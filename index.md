@@ -13,7 +13,7 @@ contact: [adamsz@agh.edu.pl](mailto:adamsz@agh.edu.pl)
 
 ## PyBrain installation:
 
-##### Windows:
+#### Windows:
 
 1. Python 2.7 installation hints: [http://docs.python-guide.org/en/latest/starting/install/win/](http://docs.python-guide.org/en/latest/starting/install/win/)
 
@@ -32,7 +32,7 @@ pip install pybrain
 
 ## PyBrain installation:
 
-##### Linux / Mac
+#### Linux / Mac
 
 ```Bash
 $ sudo zypper install python-numpy python-scipy python-matplotlib  # for Linux (OpenSuse)
