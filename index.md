@@ -7,18 +7,18 @@
 
 #### Adam Szlachta
 
-contact: [adamsz@agh.edu.pl](mailto:adamsz@agh.edu.pl)
-
-#### PyBrain usage examples:
-```Bash
-$ git clone https://github.com/dktn/pybrain-example.git
-```
+- contact: [adamsz@agh.edu.pl](mailto:adamsz@agh.edu.pl)
 
 #### Links
 
 - [http://pybrain.org/docs/](http://pybrain.org/docs/)
 - [https://github.com/pybrain/pybrain/downloads](https://github.com/pybrain/pybrain/downloads)
 - UCI Machine Learning Repository [http://archive.ics.uci.edu/ml/](http://archive.ics.uci.edu/ml/)
+
+#### PyBrain usage examples:
+```Bash
+$ git clone https://github.com/dktn/pybrain-example.git
+```
 
 ---
 
